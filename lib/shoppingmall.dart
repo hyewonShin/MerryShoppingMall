@@ -69,11 +69,6 @@ class ShoppingMall {
   void showTotal() {
     print('3번 함수 > 장바구니에 담긴 총액수 ! > $shoppingCart');
   }
-
-  //[4]프로그램 종료
-  void exitShoppingMall() {
-    print("이용해 주셔서 감사합니다 ~ 안녕히 가세요 ! ⭐");
-  }
 }
 
 class Product {
@@ -122,7 +117,8 @@ void main() {
     } else if (num == "3") {
       mall.showTotal();
     } else {
-      mall.exitShoppingMall();
+      print("이용해 주셔서 감사합니다 ~ 안녕히 가세요 ! ⭐");
+      break;
     }
   }
 }

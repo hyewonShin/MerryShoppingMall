@@ -12,7 +12,7 @@ class ShoppingMall {
   ];
 
   // 장바구니에 담은 상품들의 총 가격
-  int produecsTotalPrice = 0;
+  int productsTotalPrice = 0;
 
   //[1]상품 목록을 출력하는 메서드
   showProducts() {
@@ -40,9 +40,16 @@ class ShoppingMall {
         print("0개보다 많은 개수의 상품만 담을 수 있어요 !");
       }
 
-      produecsTotalPrice += intProductNum;
-      print('produecsTotalPrice > $produecsTotalPrice');
-      print('장바구니에 상품이 담겼어요 !');
+      // 장바구니에 담은 상품들의 총 가격을 produecsTotalPrice 변수에 담아주기
+      productsTotalPrice = products
+              .firstWhere((product) => product.productName == productName)
+              .productPrice *
+          intProductNum;
+
+      // 장바구니에 상품의 이름과 개수 담기
+      var shoppingCart = Product(productName, productsTotalPrice);
+
+      print('장바구니에 상품이 담겼어요 ! > $productsTotalPrice');
     } catch (error) {
       // 상품의 개수를 숫자 형태로 입력하지 않은 경우
       print("입력값이 올바르지 않아요(숫자형식으로 입력해주세요) !");
@@ -50,8 +57,8 @@ class ShoppingMall {
   }
 
   //[3]장바구니에 담은 상품의 총 가격을 출력하는 메서드
-  int showTotal() {
-    return 123;
+  void showTotal() {
+    print('장바구니에 $productsTotalPrice 어치를 담으셨네요 !');
   }
 
   //[4]프로그램 종료

@@ -48,7 +48,7 @@ class ShoppingMall {
           .firstWhere((product) => product.productName == productName)
           .productPrice;
 
-      productsTotalPrice = oneProductPrice * intProductNum;
+      productsTotalPrice += oneProductPrice * intProductNum;
       // print('장바구니에 담긴 총액수 ! > $productsTotalPrice');
       // print('물건 하나의 가격 ! > $oneProductPrice');
 

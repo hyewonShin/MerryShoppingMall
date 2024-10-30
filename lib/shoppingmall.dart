@@ -27,11 +27,8 @@ class ShoppingMall {
   //[2]상품을 장바구니에 담는 메서드
   void addToCart(productName, productNum) {
     try {
-      // print("product_name, product_num > $productName, $productNum");
-
       // product_num의 타입을 String => int 로 변환
       int intProductNum = int.parse(productNum);
-      // print("intProductNum > $intProductNum");
 
       // 상품 목록에 없는 상품의 이름을 입력한 경우
       if (!products.any((product) => product.productName == productName)) {
@@ -49,8 +46,6 @@ class ShoppingMall {
           .productPrice;
 
       productsTotalPrice += oneProductPrice * intProductNum;
-      // print('장바구니에 담긴 총액수 ! > $productsTotalPrice');
-      // print('물건 하나의 가격 ! > $oneProductPrice');
 
       // 장바구니에 상품의 이름과 개수 담기
       shoppingCart

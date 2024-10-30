@@ -11,11 +11,14 @@ class ShoppingMall {
     Product("e", 5000),
   ];
 
+  // 장바구니 생성
+  List<Product> shoppingCart = [];
+
   // 장바구니에 담은 상품들의 총 가격
   int productsTotalPrice = 0;
 
   //[1]상품 목록을 출력하는 메서드
-  showProducts() {
+  void showProducts() {
     for (var product in products) {
       print('${product.productName} / ${product.productPrice}원');
     }
@@ -24,11 +27,11 @@ class ShoppingMall {
   //[2]상품을 장바구니에 담는 메서드
   void addToCart(productName, productNum) {
     try {
-      print("product_name, product_num > $productName, $productNum");
+      // print("product_name, product_num > $productName, $productNum");
 
       // product_num의 타입을 String => int 로 변환
       int intProductNum = int.parse(productNum);
-      print("intProductNum > $intProductNum");
+      // print("intProductNum > $intProductNum");
 
       // 상품 목록에 없는 상품의 이름을 입력한 경우
       if (!products.any((product) => product.productName == productName)) {
@@ -41,15 +44,21 @@ class ShoppingMall {
       }
 
       // 장바구니에 담은 상품들의 총 가격을 produecsTotalPrice 변수에 담아주기
-      productsTotalPrice = products
-              .firstWhere((product) => product.productName == productName)
-              .productPrice *
-          intProductNum;
+      var oneProductPrice = products
+          .firstWhere((product) => product.productName == productName)
+          .productPrice;
+
+      productsTotalPrice = oneProductPrice * intProductNum;
+      // print('장바구니에 담긴 총액수 ! > $productsTotalPrice');
+      // print('물건 하나의 가격 ! > $oneProductPrice');
 
       // 장바구니에 상품의 이름과 개수 담기
-      var shoppingCart = Product(productName, productsTotalPrice);
+      shoppingCart
+          .add(Product(productName, oneProductPrice)); // 총 가격이 적용된 새로운 상품 추가
+      print('장바구니에 상품이 담겼어요 !');
 
-      print('장바구니에 상품이 담겼어요 ! > $productsTotalPrice');
+      // 장바구니 상품의 이름과 개수 출력
+      // print('shoppingCart > ${shoppingCart}');
     } catch (error) {
       // 상품의 개수를 숫자 형태로 입력하지 않은 경우
       print("입력값이 올바르지 않아요(숫자형식으로 입력해주세요) !");
@@ -58,12 +67,12 @@ class ShoppingMall {
 
   //[3]장바구니에 담은 상품의 총 가격을 출력하는 메서드
   void showTotal() {
-    print('장바구니에 $productsTotalPrice 어치를 담으셨네요 !');
+    print('3번 함수 > 장바구니에 담긴 총액수 ! > $shoppingCart');
   }
 
   //[4]프로그램 종료
   void exitShoppingMall() {
-    print("이용해 주셔서 감사합니다 ~ 안녕히 가세요 ! ???");
+    print("이용해 주셔서 감사합니다 ~ 안녕히 가세요 ! ⭐");
   }
 }
 
@@ -72,6 +81,12 @@ class Product {
   int productPrice = 0;
 
   Product(this.productName, this.productPrice);
+
+//shoppingCart > [Instance of 'Product'] 이렇게 객체로 되어 있는 값을 문자열로 표현해줌!
+  @override
+  String toString() {
+    return '$productName: $productPrice원'; // 상품 이름과 가격을 출력하도록 toString 메서드 오버라이드
+  }
 }
 
 void main() {
@@ -81,15 +96,14 @@ void main() {
   // print(
   //     "-------------------------------------------------------------------------------------------------------");
 
-  print('😽 번호를 입력해 주세요:');
-  String? num = stdin.readLineSync();
-  ShoppingMall shopping = ShoppingMall();
+  while (num != "4") {
+    print('😽 번호를 입력해 주세요:');
+    String? num = stdin.readLineSync();
+    ShoppingMall mall = ShoppingMall();
 
-  switch (num) {
-    case "1":
-      shopping.showProducts();
-      break;
-    case "2":
+    if (num == "1") {
+      mall.showProducts();
+    } else if (num == "2") {
       stdout.write("상품 이름을 입력해 주세요 !");
       String? productName =
           stdin.readLineSync(encoding: Encoding.getByName('utf-8')!);
@@ -101,17 +115,14 @@ void main() {
           productName != "" &&
           productNum != null &&
           productNum != "") {
-        shopping.addToCart(productName, productNum);
+        mall.addToCart(productName, productNum);
       } else {
         print("상품 이름과 갯수가 입력되지 않았습니다.");
       }
-
-      break;
-    case "3":
-      shopping.showTotal();
-      break;
-    case "4":
-      shopping.exitShoppingMall();
-      break;
+    } else if (num == "3") {
+      mall.showTotal();
+    } else {
+      mall.exitShoppingMall();
+    }
   }
 }

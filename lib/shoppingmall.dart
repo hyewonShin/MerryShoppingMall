@@ -117,11 +117,15 @@ void main() {
     } else if (num == "3") {
       mall.showTotal();
     } else if (num == "4") {
-      whileloop = false;
-      print("이용해 주셔서 감사합니다 ~ 안녕히 가세요 ! ⭐");
-      break;
-    } else {
-      print("지원하지 않는 기능입니다 ! 다시 시도해 주세요 ..");
+      stdout.write("정말 종료하시겠습니까?");
+      num = stdin.readLineSync();
+      if (num == "5") {
+        whileloop = false;
+        print("이용해 주셔서 감사합니다 ~ 안녕히 가세요 ! ⭐");
+        break;
+      } else {
+        print("지원하지 않는 기능입니다 ! 다시 시도해 주세요 ..");
+      }
     }
   }
 }

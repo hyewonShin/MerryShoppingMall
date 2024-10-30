@@ -87,7 +87,9 @@ void main() {
   ShoppingMall mall = ShoppingMall();
   String? num;
 
-  while (num != "4") {
+  bool whileloop = true;
+
+  while (whileloop) {
     print('😽 번호를 입력해 주세요:');
     num = stdin.readLineSync();
 
@@ -111,7 +113,8 @@ void main() {
       }
     } else if (num == "3") {
       mall.showTotal();
-    } else {
+    } else if (num == "4") {
+      whileloop = false;
       print("이용해 주셔서 감사합니다 ~ 안녕히 가세요 ! ⭐");
       break;
     }

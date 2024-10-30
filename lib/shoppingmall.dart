@@ -67,7 +67,10 @@ class ShoppingMall {
 
   //[3]장바구니에 담은 상품의 총 가격을 출력하는 메서드
   void showTotal() {
-    print('3번 함수 > 장바구니에 담긴 총액수 ! > $shoppingCart');
+    int totalPrice =
+        shoppingCart.fold(0, (sum, item) => sum + item.productPrice);
+    print('장바구니에 담긴 총액수 ! > $totalPrice 원');
+    print('장바구니 상품 목록: $shoppingCart');
   }
 }
 
@@ -90,11 +93,12 @@ void main() {
   // print("[1] 상품 목록 보기 / [2] 장바구니에 담기 / [3] 장바구니에 담긴 상품의 총 가격 보기 / [4] 프로그램 종료
   // print(
   //     "-------------------------------------------------------------------------------------------------------");
+  ShoppingMall mall = ShoppingMall();
+  String? num;
 
   while (num != "4") {
     print('😽 번호를 입력해 주세요:');
-    String? num = stdin.readLineSync();
-    ShoppingMall mall = ShoppingMall();
+    num = stdin.readLineSync();
 
     if (num == "1") {
       mall.showProducts();

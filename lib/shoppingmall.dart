@@ -67,10 +67,7 @@ class ShoppingMall {
 
   //[3]장바구니에 담은 상품의 총 가격을 출력하는 메서드
   void showTotal() {
-    int totalPrice =
-        shoppingCart.fold(0, (sum, item) => sum + item.productPrice);
-    print('장바구니에 담긴 총액수 ! > $totalPrice 원');
-    print('장바구니 상품 목록: $shoppingCart');
+    print('장바구니에 담긴 총액수 ! > $productsTotalPrice 원');
   }
 }
 
@@ -79,12 +76,6 @@ class Product {
   int productPrice = 0;
 
   Product(this.productName, this.productPrice);
-
-//shoppingCart > [Instance of 'Product'] 이렇게 객체로 되어 있는 값을 문자열로 표현해줌!
-  @override
-  String toString() {
-    return '$productName: $productPrice원'; // 상품 이름과 가격을 출력하도록 toString 메서드 오버라이드
-  }
 }
 
 void main() {

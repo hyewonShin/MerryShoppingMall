@@ -64,6 +64,13 @@ class ShoppingMall {
   void showTotal() {
     print('장바구니에 담긴 총액수 ! > $productsTotalPrice 원');
   }
+
+  // 장바구니를 초기화할 수 있는 기능
+  void clearShoppingCart() {
+    shoppingCart.clear();
+    productsTotalPrice = 0;
+    print("장바구니를 초기화합니다.");
+  }
 }
 
 class Product {
@@ -126,6 +133,8 @@ void main() {
       } else {
         print("지원하지 않는 기능입니다 ! 다시 시도해 주세요 ..");
       }
+    } else if (num == "6") {
+      mall.clearShoppingCart();
     }
   }
 }

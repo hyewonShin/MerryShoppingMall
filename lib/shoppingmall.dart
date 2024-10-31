@@ -1,5 +1,6 @@
-import 'dart:convert';
 import 'dart:io';
+import 'dart:convert';
+import 'package:intl/intl.dart';
 
 class ShoppingMall {
   //판매하는 상품 목록
@@ -70,8 +71,9 @@ class ShoppingMall {
         for (var item in shoppingCart) {
           shoppinCartItem.add(item.productName);
         }
+        var formatTotalPrice = NumberFormat('###,###,###,###');
         print(
-            '장바구니에 ${shoppinCartItem.join(', ')}가 담겨있네요. 총 $productsTotalPrice 원 입니다!');
+            '장바구니에 ${shoppinCartItem.join(', ')}가 담겨있네요. 총 ${formatTotalPrice.format(productsTotalPrice)} 원 입니다!');
       } else {
         print('장바구니에 담긴 상품이 없습니다.');
       }

@@ -58,9 +58,11 @@ class ShoppingMall {
       shoppingCart
           .add(Product(productName, oneProductPrice)); // 총 가격이 적용된 새로운 상품 추가
       print('장바구니에 상품이 담겼어요 !');
-    } catch (error) {
+    } on FormatException catch (error) {
       // 상품의 개수를 숫자 형태로 입력하지 않은 경우
-      print("입력값이 올바르지 않아요(숫자형식으로 입력해주세요) !");
+      print("입력값이 올바르지 않아요(숫자형식으로 입력해주세요) ! $error");
+    } catch (error) {
+      print(error);
     }
   }
 
@@ -130,6 +132,7 @@ void main() {
       GuideNum();
       print('😽 번호를 입력해 주세요:');
       num = stdin.readLineSync();
+      print('🐱 입력하신 번호는 $num 입니다.');
 
       if (num == "1") {
         mall.showProducts();

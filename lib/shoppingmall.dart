@@ -53,9 +53,6 @@ class ShoppingMall {
       shoppingCart
           .add(Product(productName, oneProductPrice)); // 총 가격이 적용된 새로운 상품 추가
       print('장바구니에 상품이 담겼어요 !');
-
-      // 장바구니 상품의 이름과 개수 출력
-      print('shoppingCart > ${shoppingCart}');
     } catch (error) {
       // 상품의 개수를 숫자 형태로 입력하지 않은 경우
       print("입력값이 올바르지 않아요(숫자형식으로 입력해주세요) !");
@@ -92,10 +89,6 @@ class Product {
   int productPrice = 0;
 
   Product(this.productName, this.productPrice);
-
-  String toString() {
-    return '$productName: $productPrice원'; // 상품 이름과 가격을 출력하도록 toString 메서드 오버라이드
-  }
 }
 
 void GuideNum() {

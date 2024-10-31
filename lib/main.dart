@@ -107,7 +107,7 @@ class Product {
   Product(this.productName, this.productPrice);
 }
 
-void GuideNum() {
+void guideNum() {
   try {
     print(
         "-------------------------------------------------------------------------------------------------------");
@@ -129,7 +129,7 @@ void main() {
     bool whileloop = true;
 
     while (whileloop) {
-      GuideNum();
+      guideNum();
       print('😽 번호를 입력해 주세요:');
       num = stdin.readLineSync();
       print('🐱 입력하신 번호는 $num 입니다.');

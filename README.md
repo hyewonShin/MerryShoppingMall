@@ -1,2 +1,26 @@
-A sample command-line application with an entrypoint in `bin/`, library code
-in `lib/`, and example unit test in `test/`.
+# 프로젝트 소개 
+콘솔로 실행하여 사용할 수 있는 간단한 쇼핑물 프로그램입니다 🐱🛒
+<br/><br/>
+
+# 개발기간
+2024.10.30~2024.10.31
+<br/><br/>
+
+
+# 개발환경
+Dart sdk: ^3.5.4
+<br/><br/>
+
+
+# 주요기능
+- 판매하는 상품 목록을 볼 수 있는 기능
+- 구매자가 구매하고 싶은 상품들을 장바구니에 담을 수 있는 기능
+- 구매자가 장바구니에 담은 상품의 목록과 상품들의 총 가격을 볼 수 있는 기능
+- 프로그램 종료하는 기능(한 번 더 확인)
+- 장바구니 초기화하는 기능 
+<br/><br/>
+
+ 
+
+# 프로젝트 미리보기 
+![image](https://github.com/user-attachments/assets/3ae69081-ccd1-4b3c-886d-e8e8fb088e62)

@@ -11,13 +11,13 @@ class ShoppingMall {
     Product("e", 5000),
   ];
 
+  // 장바구니에 담은 상품들의 총 가격
+  int productsTotalPrice = 0;
+
   // 장바구니 생성
   List<Product> shoppingCart = [];
   // 장바구니 내부에 상품이름 리스트
   List<String> shoppinCartItem = [];
-
-  // 장바구니에 담은 상품들의 총 가격
-  int productsTotalPrice = 0;
 
   //[1]상품 목록을 출력하는 메서드
   void showProducts() {

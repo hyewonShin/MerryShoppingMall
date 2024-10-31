@@ -60,12 +60,13 @@ class ShoppingMall {
     }
   }
 
-  //[3]장바구니에 담은 상품의 총 가격을 출력하는 메서드
+  //[3]장바구니에 담은 상품들의 목록과 총 가격을 출력하는 메서드
   void showTotal() {
     print('장바구니에 담긴 총액수 ! > $productsTotalPrice 원');
+    print('shoppingCart > ${shoppingCart}');
   }
 
-  // 장바구니를 초기화할 수 있는 기능
+  //[6]장바구니를 초기화할 수 있는 기능
   void clearShoppingCart() {
     if (productsTotalPrice != 0) {
       shoppingCart.clear();
@@ -133,11 +134,11 @@ void main() {
         whileloop = false;
         print("이용해 주셔서 감사합니다 ~ 안녕히 가세요 ! ⭐");
         break;
-      } else {
-        print("지원하지 않는 기능입니다 ! 다시 시도해 주세요 ..");
       }
     } else if (num == "6") {
       mall.clearShoppingCart();
+    } else {
+      print("지원하지 않는 기능입니다 ! 다시 시도해 주세요 ..");
     }
   }
 }

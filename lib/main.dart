@@ -118,9 +118,9 @@ void main() {
 
     while (whileloop) {
       guideNum();
-      print('😽 번호를 입력해 주세요:');
+      stdout.write('😽 번호를 입력해 주세요:');
       num = stdin.readLineSync();
-      print('🐱 입력하신 번호는 [ $num ]입니다.');
+      print('🐱 입력하신 번호는 [ $num ] 입니다.');
 
       if (num == "1") {
         mall.showProducts();
@@ -143,7 +143,7 @@ void main() {
       } else if (num == "3") {
         mall.showTotal();
       } else if (num == "4") {
-        stdout.write("정말 종료하시겠습니까?");
+        stdout.write("정말 종료하시겠습니까? 5번을 입력하면 종료됩니다.");
         num = stdin.readLineSync();
         if (num == "5") {
           whileloop = false;

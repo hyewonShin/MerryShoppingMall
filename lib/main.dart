@@ -13,18 +13,18 @@ void main() {
 
     while (whileloop) {
       guideNum();
-      stdout.write('😽 번호를 입력해 주세요:');
+      stdout.write('😽 번호를 입력해 주세요: ');
       num = stdin.readLineSync();
       print('🐱 입력하신 번호는 [ $num ] 입니다.');
 
       if (num == "1") {
         mall.showProducts();
       } else if (num == "2") {
-        stdout.write("상품 이름을 입력해 주세요 !");
+        stdout.write("상품 이름을 입력해 주세요 ! ");
         String? productName =
             stdin.readLineSync(encoding: Encoding.getByName('utf-8')!);
 
-        stdout.write("상품 개수를 입력해 주세요 !");
+        stdout.write("상품 개수를 입력해 주세요 ! ");
         String? productNum =
             stdin.readLineSync(encoding: Encoding.getByName('utf-8')!);
         if (productName != null &&
@@ -38,7 +38,7 @@ void main() {
       } else if (num == "3") {
         mall.showTotal();
       } else if (num == "4") {
-        stdout.write("정말 종료하시겠습니까? 5번을 입력하면 종료됩니다.");
+        stdout.write("정말 종료하시겠습니까? 5번을 입력하면 종료됩니다. ");
         num = stdin.readLineSync();
         if (num == "5") {
           whileloop = false;

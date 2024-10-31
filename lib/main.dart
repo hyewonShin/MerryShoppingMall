@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'dart:convert';
 import 'package:intl/intl.dart';
-import 'package:shoppingmall/guid_num.dart';
+import 'package:shoppingmall/utils/guid_num.dart';
 
 class ShoppingMall {
   //판매하는 상품 목록

@@ -14,6 +14,8 @@ class ShoppingMall {
   // 장바구니 생성
   List<Product> shoppingCart = [];
 
+  List<String> shoppinCartItem = [];
+
   // 장바구니에 담은 상품들의 총 가격
   int productsTotalPrice = 0;
 
@@ -62,8 +64,15 @@ class ShoppingMall {
 
   //[3]장바구니에 담은 상품들의 목록과 총 가격을 출력하는 메서드
   void showTotal() {
-    print('장바구니에 담긴 총액수 ! > $productsTotalPrice 원');
-    print('shoppingCart > ${shoppingCart}');
+    if (productsTotalPrice != 0) {
+      for (var item in shoppingCart) {
+        shoppinCartItem.add(item.productName);
+      }
+      print(
+          '장바구니에 ${shoppinCartItem.join(', ')}가 담겨있네요. 총 $productsTotalPrice 원 입니다!');
+    } else {
+      print('장바구니에 담긴 상품이 없습니다.');
+    }
   }
 
   //[6]장바구니를 초기화할 수 있는 기능

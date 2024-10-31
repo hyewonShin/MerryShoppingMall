@@ -2,6 +2,15 @@ import 'dart:io';
 import 'dart:convert';
 import 'package:intl/intl.dart';
 
+// class FormatException implements Exception {
+//   final String? message;
+
+//   FormatException(this.message);
+
+//   @override
+//   String toString() => message ?? 'FormatException이 발생했어요 !';
+// }
+
 class ShoppingMall {
   //판매하는 상품 목록
   List<Product> products = [
@@ -60,7 +69,7 @@ class ShoppingMall {
       print('장바구니에 상품이 담겼어요 !');
     } on FormatException catch (error) {
       // 상품의 개수를 숫자 형태로 입력하지 않은 경우
-      print("입력값이 올바르지 않아요(숫자형식으로 입력해주세요) ! $error");
+      print("입력값이 올바르지 않아요(상품의 개수를 숫자 형식으로 입력해주세요) ! $error");
     } catch (error) {
       print(error);
     }

@@ -17,7 +17,7 @@ class ShoppingMall {
   // 장바구니 생성
   List<Product> shoppingCart = [];
   // 장바구니 내부에 상품이름 리스트
-  List<String> shoppinCartItem = [];
+  List<String> shoppingCartItem = [];
 
   //[1]상품 목록을 출력하는 메서드
   void showProducts() {
@@ -70,11 +70,11 @@ class ShoppingMall {
     try {
       if (productsTotalPrice != 0) {
         for (var item in shoppingCart) {
-          shoppinCartItem.add(item.productName);
+          shoppingCartItem.add(item.productName);
         }
         var formatTotalPrice = NumberFormat('###,###,###,###');
         print(
-            '🛒 장바구니에 ${shoppinCartItem.join(', ')}가 담겨있네요. 총 ${formatTotalPrice.format(productsTotalPrice)} 원 입니다!');
+            '🛒 장바구니에 ${shoppingCartItem.join(', ')}가 담겨있네요. 총 ${formatTotalPrice.format(productsTotalPrice)} 원 입니다!');
       } else {
         print('장바구니에 담긴 상품이 없습니다.');
       }

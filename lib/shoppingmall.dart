@@ -134,6 +134,8 @@ void main() {
         whileloop = false;
         print("이용해 주셔서 감사합니다 ~ 안녕히 가세요 ! ⭐");
         break;
+      } else {
+        print('종료하지 않습니다.');
       }
     } else if (num == "6") {
       mall.clearShoppingCart();

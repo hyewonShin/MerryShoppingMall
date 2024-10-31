@@ -58,7 +58,7 @@ class ShoppingMall {
       // 장바구니에 상품의 이름과 개수 담기
       shoppingCart
           .add(Product(productName, oneProductPrice)); // 총 가격이 적용된 새로운 상품 추가
-      print('장바구니에 상품이 담겼어요 !');
+      print('🛒 장바구니에 상품이 담겼어요 !');
     } on FormatException catch (error) {
       // 상품의 개수를 숫자 형태로 입력하지 않은 경우
       print("입력값이 올바르지 않아요(상품의 개수를 숫자 형식으로 입력해주세요) ! $error");
@@ -76,7 +76,7 @@ class ShoppingMall {
         }
         var formatTotalPrice = NumberFormat('###,###,###,###');
         print(
-            '장바구니에 ${shoppinCartItem.join(', ')}가 담겨있네요. 총 ${formatTotalPrice.format(productsTotalPrice)} 원 입니다!');
+            '🛒 장바구니에 ${shoppinCartItem.join(', ')}가 담겨있네요. 총 ${formatTotalPrice.format(productsTotalPrice)} 원 입니다!');
       } else {
         print('장바구니에 담긴 상품이 없습니다.');
       }

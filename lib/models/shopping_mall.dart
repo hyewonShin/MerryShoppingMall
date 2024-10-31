@@ -26,7 +26,7 @@ class ShoppingMall {
         print('${product.productName} / ${product.productPrice}원');
       }
     } catch (error) {
-      print('error message > $error');
+      print('showProducts error > $error');
     }
   }
 
@@ -61,7 +61,7 @@ class ShoppingMall {
       // 상품의 개수를 숫자 형태로 입력하지 않은 경우
       print("입력값이 올바르지 않아요(상품의 개수를 숫자 형식으로 입력해주세요) ! $error");
     } catch (error) {
-      print(error);
+      print('addToCart error > $error');
     }
   }
 
@@ -79,7 +79,7 @@ class ShoppingMall {
         print('장바구니에 담긴 상품이 없습니다.');
       }
     } catch (error) {
-      print('error message > $error');
+      print('showTotal error > $error');
     }
   }
 
@@ -94,7 +94,7 @@ class ShoppingMall {
         print('이미 장바구니가 비어있습니다.');
       }
     } catch (error) {
-      print('error message > $error');
+      print('clearShoppingCart error > $error');
     }
   }
 }

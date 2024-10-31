@@ -72,8 +72,9 @@ class ShoppingMall {
       shoppingCart.clear();
       productsTotalPrice = 0;
       print("장바구니를 초기화합니다.");
+    } else {
+      print('이미 장바구니가 비어있습니다.');
     }
-    print('이미 장바구니가 비어있습니다.');
   }
 }
 

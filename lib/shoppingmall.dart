@@ -2,15 +2,6 @@ import 'dart:io';
 import 'dart:convert';
 import 'package:intl/intl.dart';
 
-// class FormatException implements Exception {
-//   final String? message;
-
-//   FormatException(this.message);
-
-//   @override
-//   String toString() => message ?? 'FormatException이 발생했어요 !';
-// }
-
 class ShoppingMall {
   //판매하는 상품 목록
   List<Product> products = [
@@ -23,7 +14,7 @@ class ShoppingMall {
 
   // 장바구니 생성
   List<Product> shoppingCart = [];
-
+  // 장바구니 내부에 상품이름 리스트
   List<String> shoppinCartItem = [];
 
   // 장바구니에 담은 상품들의 총 가격

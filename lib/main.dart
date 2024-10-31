@@ -120,7 +120,7 @@ void main() {
       guideNum();
       print('😽 번호를 입력해 주세요:');
       num = stdin.readLineSync();
-      print('🐱 입력하신 번호는 $num 입니다.');
+      print('🐱 입력하신 번호는 [ $num ]입니다.');
 
       if (num == "1") {
         mall.showProducts();

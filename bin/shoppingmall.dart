@@ -1,3 +1,3 @@
-import 'package:shoppingmall/shoppingmall.dart' as shoppingmall;
+import 'package:shoppingmall/main.dart' as shoppingmall;
 
 void main(List<String> arguments) {}

@@ -67,9 +67,12 @@ class ShoppingMall {
 
   // 장바구니를 초기화할 수 있는 기능
   void clearShoppingCart() {
-    shoppingCart.clear();
-    productsTotalPrice = 0;
-    print("장바구니를 초기화합니다.");
+    if (productsTotalPrice != 0) {
+      shoppingCart.clear();
+      productsTotalPrice = 0;
+      print("장바구니를 초기화합니다.");
+    }
+    print('이미 장바구니가 비어있습니다.');
   }
 }
 

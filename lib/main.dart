@@ -28,7 +28,6 @@ void main() {
         if (num == "5") {
           whileloop = false;
           print("이용해 주셔서 감사합니다 ~ 안녕히 가세요 ! ⭐");
-          break;
         } else {
           print('종료하지 않습니다.');
         }

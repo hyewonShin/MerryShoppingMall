@@ -1,3 +1,6 @@
+import 'dart:convert';
+import 'dart:io';
+
 import 'package:shoppingmall/models/product.dart';
 import 'package:intl/intl.dart';
 
@@ -31,7 +34,15 @@ class ShoppingMall {
   }
 
   //[2]상품을 장바구니에 담는 메서드
-  void addToCart(productName, productNum) {
+  void addToCart() {
+    stdout.write("상품 이름을 입력해 주세요 ! ");
+    String productName =
+        stdin.readLineSync(encoding: Encoding.getByName('utf-8')!) ?? "";
+
+    stdout.write("상품 개수를 입력해 주세요 ! ");
+    String productNum =
+        stdin.readLineSync(encoding: Encoding.getByName('utf-8')!) ?? "";
+    print(productNum);
     try {
       // product_num의 타입을 String => int 로 변환
       int intProductNum = int.parse(productNum);
@@ -39,6 +50,7 @@ class ShoppingMall {
       // 상품 목록에 없는 상품의 이름을 입력한 경우
       if (!products.any((product) => product.productName == productName)) {
         print("입력값이 올바르지 않아요(목록에 없는 상품이에요) !");
+        return; // 목록에 없는 상품을 입력 한 경우, 아래 코드로 실행되지 않도록 return 처리
       }
 
       // 입력한 상품의 개수가 0 이하의 수인 경우
@@ -59,7 +71,7 @@ class ShoppingMall {
       print('🛒 장바구니에 상품이 담겼어요 !');
     } on FormatException catch (error) {
       // 상품의 개수를 숫자 형태로 입력하지 않은 경우
-      print("입력값이 올바르지 않아요(상품의 개수를 숫자 형식으로 입력해주세요) ! $error");
+      print("입력값이 올바르지 않아요(상품의 개수를 숫자 형식으로 입력해주세요) !");
     } catch (error) {
       print('addToCart error > $error');
     }

@@ -20,21 +20,7 @@ void main() {
       if (num == "1") {
         mall.showProducts();
       } else if (num == "2") {
-        stdout.write("상품 이름을 입력해 주세요 ! ");
-        String? productName =
-            stdin.readLineSync(encoding: Encoding.getByName('utf-8')!);
-
-        stdout.write("상품 개수를 입력해 주세요 ! ");
-        String? productNum =
-            stdin.readLineSync(encoding: Encoding.getByName('utf-8')!);
-        if (productName != null &&
-            productName != "" &&
-            productNum != null &&
-            productNum != "") {
-          mall.addToCart(productName, productNum);
-        } else {
-          print("상품 이름과 갯수가 입력되지 않았습니다.");
-        }
+        mall.addToCart();
       } else if (num == "3") {
         mall.showTotal();
       } else if (num == "4") {

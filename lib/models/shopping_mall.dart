@@ -17,8 +17,6 @@ class ShoppingMall {
   // 장바구니에 담은 상품들의 총 가격
   int productsTotalPrice = 0;
 
-  // 장바구니 생성
-  List<Product> shoppingCart = [];
   // 장바구니 내부에 상품이름 리스트
   List<String> shoppingCartItem = [];
 
@@ -42,38 +40,36 @@ class ShoppingMall {
     stdout.write("상품 개수를 입력해 주세요 ! ");
     String productNum =
         stdin.readLineSync(encoding: Encoding.getByName('utf-8')!) ?? "";
-    print(productNum);
+
     try {
       // product_num의 타입을 String => int 로 변환
       int intProductNum = int.parse(productNum);
 
-      // 상품 목록에 없는 상품의 이름을 입력한 경우
-      if (!products.any((product) => product.productName == productName)) {
-        print("입력값이 올바르지 않아요(목록에 없는 상품이에요) !");
-        return; // 목록에 없는 상품을 입력 한 경우, 아래 코드로 실행되지 않도록 return 처리
-      }
+      // Product 클래스는 사용자 지정 정의 타입이기 때문에, Dart에서는 Product 객체를 String,int 등의 일반적인 타입의 변수에 할당할 수 없다.
+      // dart는 정적 타입 언어이기 때문에, 특정 타입으로 선언된 변수에는 해당 타입의 데이터만 할당할 수 있도록 강제한다.
+      // 따라서 product.firstWhere() 로 찾은 결과가 Product 타입인 경우, 이를 받을 변수도 반드시 Product 타입이어야 한다.
+      Product product =
+          products.firstWhere((product) => product.productName == productName);
 
       // 입력한 상품의 개수가 0 이하의 수인 경우
       if (intProductNum <= 0) {
         print("0개보다 많은 개수의 상품만 담을 수 있어요 !");
+      } else {
+        // 장바구니에 담은 상품 하나의 가격
+        var oneProductPrice = product.productPrice;
+
+        // 장바구니에 담은 상품들의 총 가격을 produecsTotalPrice 변수에 담아주기
+        productsTotalPrice += oneProductPrice * intProductNum;
+
+        // 장바구니에 상품의 이름과 개수 담기
+        shoppingCartItem.add(product.productName); // 총 가격이 적용된 새로운 상품 추가
+        print('🛒 장바구니에 상품이 담겼어요 !');
       }
-
-      // 장바구니에 담은 상품들의 총 가격을 produecsTotalPrice 변수에 담아주기
-      var oneProductPrice = products
-          .firstWhere((product) => product.productName == productName)
-          .productPrice;
-
-      productsTotalPrice += oneProductPrice * intProductNum;
-
-      // 장바구니에 상품의 이름과 개수 담기
-      shoppingCart
-          .add(Product(productName, oneProductPrice)); // 총 가격이 적용된 새로운 상품 추가
-      print('🛒 장바구니에 상품이 담겼어요 !');
     } on FormatException catch (error) {
       // 상품의 개수를 숫자 형태로 입력하지 않은 경우
-      print("입력값이 올바르지 않아요(상품의 개수를 숫자 형식으로 입력해주세요) !");
+      print("입력값이 올바르지 않아요! (상품의 개수를 숫자 형태로 입력해주세요)");
     } catch (error) {
-      print('addToCart error > $error');
+      print('입력값이 올바르지 않아요! (존재하지 않는 상품입니다) $error');
     }
   }
 
@@ -81,9 +77,6 @@ class ShoppingMall {
   void showTotal() {
     try {
       if (productsTotalPrice != 0) {
-        for (var item in shoppingCart) {
-          shoppingCartItem.add(item.productName);
-        }
         var formatTotalPrice = NumberFormat('###,###,###,###');
         print(
             '🛒 장바구니에 ${shoppingCartItem.join(', ')}가 담겨있네요. 총 ${formatTotalPrice.format(productsTotalPrice)} 원 입니다!');
@@ -99,7 +92,6 @@ class ShoppingMall {
   void clearShoppingCart() {
     try {
       if (productsTotalPrice != 0) {
-        shoppingCart.clear();
         productsTotalPrice = 0;
         print("장바구니를 초기화합니다.");
       } else {

@@ -1,5 +1,4 @@
 import 'dart:io';
-import 'dart:convert';
 import 'package:shoppingmall/models/shopping_mall.dart';
 import 'package:shoppingmall/utils/guid_num.dart';
 
